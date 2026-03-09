@@ -205,6 +205,28 @@
       100% { opacity: 1; transform: translateY(0); }
     }
 
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      padding: 16px;
+      font-size: 13px;
+    }
+
+    .footer a {
+      color: rgba(255,255,255,0.25);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer a:hover {
+      color: rgba(255,255,255,0.5);
+    }
+
     @media (max-width: 480px) {
       .available { font-size: 28px; }
       .app-name { font-size: 16px; margin-bottom: 40px; }
@@ -236,5 +258,11 @@
       </a>
     </div>
   </div>
+
+  <footer class="footer">
+    <a href="fr/privacy/">Confidentialité</a>
+    <a href="fr/terms/">CGU</a>
+    <a href="fr/support/">Support</a>
+  </footer>
 </body>
 </html>
