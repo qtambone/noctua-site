@@ -13,14 +13,18 @@
     gtag('js', new Date());
     gtag('config', 'G-NGCVXYD9BP', { transport_type: 'beacon' });
 
-    // Tenter le redirect au chargement du DOM
-    document.addEventListener('DOMContentLoaded', function() {
-      var ua = navigator.userAgent || navigator.vendor;
-      var dest = /android/i.test(ua)
-        ? "https://play.google.com/store/apps/details?id=com.noctuaapp.android"
-        : "https://apps.apple.com/fr/app/noctua-citation-r%C3%A9flexion/id6758439405";
-      window.location.replace(dest);
-    });
+    var ua = navigator.userAgent || navigator.vendor;
+    if (/android/i.test(ua)) {
+      window.location.replace("https://play.google.com/store/apps/details?id=com.noctuaapp.android");
+    } else {
+      window.location.replace("https://apps.apple.com/fr/app/noctua-citation-r%C3%A9flexion/id6758439405");
+    }
+
+    // Si l'utilisateur est toujours là après 1.5s, afficher le fallback
+    setTimeout(function() {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('fallback').style.display = 'flex';
+    }, 1500);
   </script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -35,25 +39,13 @@
       padding: 24px;
       text-align: center;
     }
-    #loading {
-      font-size: 17px;
-      color: rgba(255,255,255,0.6);
-      animation: hideLoading 0s 1.5s forwards;
-    }
-    @keyframes hideLoading {
-      to { display: none; }
-    }
+    #loading { font-size: 17px; color: rgba(255,255,255,0.6); }
     #fallback {
-      display: flex;
+      display: none;
       flex-direction: column;
       align-items: center;
       gap: 24px;
       max-width: 300px;
-      opacity: 0;
-      animation: showFallback 0.3s ease 1.5s forwards;
-    }
-    @keyframes showFallback {
-      to { opacity: 1; }
     }
     .fallback-title {
       font-size: 20px;
