@@ -19,9 +19,58 @@
     } else {
       window.location.replace("https://apps.apple.com/fr/app/noctua-citation-r%C3%A9flexion/id6758439405");
     }
+
+    // Si l'utilisateur est toujours là après 1.5s, afficher le fallback
+    setTimeout(function() {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('fallback').style.display = 'flex';
+    }, 1500);
   </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: -apple-system, system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+    #loading { font-size: 17px; color: rgba(255,255,255,0.6); }
+    #fallback {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      max-width: 300px;
+    }
+    .fallback-title {
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .fallback-steps {
+      font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+    }
+    .fallback-icon {
+      font-size: 32px;
+      margin-bottom: 4px;
+    }
+  </style>
 </head>
 <body>
-  <p>Redirection en cours…</p>
+  <p id="loading">Redirection en cours…</p>
+
+  <div id="fallback">
+    <div class="fallback-icon">⋯</div>
+    <p class="fallback-title">Ouvre ce lien dans ton navigateur</p>
+    <p class="fallback-steps">
+      Appuie sur les <strong>trois points</strong> en haut à droite, puis choisis <strong>« Ouvrir dans le navigateur »</strong>
+    </p>
+  </div>
 </body>
 </html>
