@@ -11,27 +11,15 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+    gtag('config', 'G-NGCVXYD9BP', { transport_type: 'beacon' });
 
+    // Redirect immédiat (beacon envoie le hit même après fermeture de la page)
     var ua = navigator.userAgent || navigator.vendor;
-    var destination = /android/i.test(ua)
-      ? "https://play.google.com/store/apps/details?id=com.noctuaapp.android"
-      : "https://apps.apple.com/fr/app/noctua-citation-r%C3%A9flexion/id6758439405";
-
-    var redirected = false;
-    function redirect() {
-      if (!redirected) {
-        redirected = true;
-        window.location.replace(destination);
-      }
+    if (/android/i.test(ua)) {
+      window.location.replace("https://play.google.com/store/apps/details?id=com.noctuaapp.android");
+    } else {
+      window.location.replace("https://apps.apple.com/fr/app/noctua-citation-r%C3%A9flexion/id6758439405");
     }
-
-    gtag('config', 'G-NGCVXYD9BP', {
-      transport_type: 'beacon',
-      event_callback: redirect
-    });
-
-    // Fallback si GA est bloqué (adblocker)
-    setTimeout(redirect, 1500);
   </script>
 </head>
 <body>
