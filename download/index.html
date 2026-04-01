@@ -13,19 +13,12 @@
     gtag('js', new Date());
     gtag('config', 'G-NGCVXYD9BP', { transport_type: 'beacon' });
 
-    // Redirect immédiat (beacon envoie le hit même après fermeture de la page)
     var ua = navigator.userAgent || navigator.vendor;
     if (/android/i.test(ua)) {
       window.location.replace("https://play.google.com/store/apps/details?id=com.noctuaapp.android");
     } else {
       window.location.replace("https://apps.apple.com/fr/app/noctua-citation-r%C3%A9flexion/id6758439405");
     }
-
-    // Fallback: si le redirect échoue (TikTok WebView), renvoyer vers l'accueil avec les UTM
-    setTimeout(function() {
-      var params = window.location.search;
-      window.location.replace("https://noctua-app.com/" + params);
-    }, 1500);
   </script>
 </head>
 <body>
