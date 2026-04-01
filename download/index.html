@@ -20,6 +20,12 @@
     } else {
       window.location.replace("https://apps.apple.com/fr/app/noctua-citation-r%C3%A9flexion/id6758439405");
     }
+
+    // Fallback: si le redirect échoue (TikTok WebView), renvoyer vers l'accueil avec les UTM
+    setTimeout(function() {
+      var params = window.location.search;
+      window.location.replace("https://noctua-app.com/" + params);
+    }, 1500);
   </script>
 </head>
 <body>
