@@ -4,73 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Télécharger Noctua</title>
-
-  <!-- GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NGCVXYD9BP"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-NGCVXYD9BP', { transport_type: 'beacon' });
-
     var ua = navigator.userAgent || navigator.vendor;
     if (/android/i.test(ua)) {
       window.location.replace("https://play.google.com/store/apps/details?id=com.noctuaapp.android");
     } else {
       window.location.replace("https://apps.apple.com/fr/app/noctua-citation-r%C3%A9flexion/id6758439405");
     }
-
-    // Si l'utilisateur est toujours là après 1.5s, afficher le fallback
-    setTimeout(function() {
-      document.getElementById('loading').style.display = 'none';
-      document.getElementById('fallback').style.display = 'flex';
-    }, 1500);
   </script>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: #000;
-      color: #fff;
-      font-family: -apple-system, system-ui, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      text-align: center;
-    }
-    #loading { font-size: 17px; color: rgba(255,255,255,0.6); }
-    #fallback {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
-      max-width: 300px;
-    }
-    .fallback-title {
-      font-size: 20px;
-      font-weight: 600;
-    }
-    .fallback-steps {
-      font-size: 15px;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.6;
-    }
-    .fallback-icon {
-      font-size: 32px;
-      margin-bottom: 4px;
-    }
-  </style>
 </head>
 <body>
-  <p id="loading">Redirection en cours…</p>
-
-  <div id="fallback">
-    <div class="fallback-icon">⋯</div>
-    <p class="fallback-title">Ouvre ce lien dans ton navigateur</p>
-    <p class="fallback-steps">
-      Appuie sur les <strong>trois points</strong> en haut à droite, puis choisis <strong>« Ouvrir dans le navigateur »</strong>
-    </p>
-  </div>
+  <p>Redirection en cours…</p>
 </body>
 </html>
